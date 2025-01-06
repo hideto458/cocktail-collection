@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 :root {
-  font-size: 120%;
+  font-size: min(120%, 4vw);
 
   --color-primary: #891652;
   --color-dark: #240a34;
@@ -37,7 +37,7 @@ a:visited {
 
 img {
   vertical-align: bottom;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 button {
@@ -50,7 +50,7 @@ button {
   flex-direction: column;
   gap: 4rem;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 min(2rem, 5vw);
   max-width: 1200px;
   min-height: 100vh;
 }
@@ -101,36 +101,4 @@ button {
 
 .back:hover {
   opacity: 0.5;
-}
-
-@media (max-width: 800px) {
-  .flex-container {
-    flex-direction: column;
-    width: 360px;
-  }
-}
-
-@media (max-width: 500px) {
-  .flex-container {
-    flex-direction: column;
-    width: 280px;
-  }
-
-  header {
-    padding: 0 1rem;
-  }
-
-  .collection {
-    padding: 4rem 1rem;
-  }
-
-  .todays-cocktail {
-    padding: 4rem 2rem;
-    position: relative;
-  }
-
-  .full {
-    width: 280px;
-    height: 280px;
-  }
 }

@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Logo />
+      <Logo size={1.25} />
       <Button onClick={() => navigate("/favorites")} type="secondary">
         Watch Favorites
       </Button>

@@ -3,9 +3,6 @@ import Heading from "../components/Heading";
 import styles from "./Favorites.module.css";
 
 export default function Favorites({ favorites, dispatch }) {
-  const { id } = useParams();
-  const isModalOpen = Boolean(id);
-
   return (
     <section className={`${styles.container}`}>
       <Heading>Favorites</Heading>
@@ -14,11 +11,10 @@ export default function Favorites({ favorites, dispatch }) {
           <Link
             key={fav.id}
             className={styles.gridItem}
-            to={`/favorites/${fav.id}`}
+            to={`/drink/${fav.id}`}
           >
             <img
               width={200}
-              height={200}
               className={styles.img}
               src={fav.imgUrl}
               alt={fav.name}
@@ -27,12 +23,6 @@ export default function Favorites({ favorites, dispatch }) {
           </Link>
         ))}
       </div>
-
-      {isModalOpen && (
-        <div className={styles.overlay}>
-          <div className={styles.modal}></div>
-        </div>
-      )}
     </section>
   );
 }

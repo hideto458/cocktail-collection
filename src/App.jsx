@@ -72,7 +72,6 @@ export default function App() {
     const fetchDrinkDelay = async () => {
       try {
         const res = await Promise.all([fetchDrink(), wait2Secs]);
-        console.log(res);
         const drink = res.at(0);
 
         dispatch({
@@ -113,7 +112,10 @@ export default function App() {
             path="/favorites"
             element={<Favorites favorites={favorites} dispatch={dispatch} />}
           />
-          <Route path="/drink/:id" element={<Drink />} />
+          <Route
+            path="/drink/:id"
+            element={<Drink favorites={favorites} dispatch={dispatch} />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

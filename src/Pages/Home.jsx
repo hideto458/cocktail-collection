@@ -23,7 +23,6 @@ export default function Home({ drink, status, isFavorite, dispatch }) {
               <div className={styles.boxes}>
                 <img
                   width={300}
-                  height={300}
                   className={styles.box}
                   src={drink.imgUrl}
                   alt={drink.name}
@@ -33,7 +32,7 @@ export default function Home({ drink, status, isFavorite, dispatch }) {
                     <h3 className={styles.drinkName}>{drink.name}</h3>
                     <button
                       className={`${styles.fav} ${
-                        isFavorite && styles.favActive
+                        isFavorite ? styles.favActive : undefined
                       }`}
                       onClick={handleFavs}
                     >
@@ -46,7 +45,7 @@ export default function Home({ drink, status, isFavorite, dispatch }) {
               </div>
             </>
           )}
-          <div className={!hasDrink && styles.welcome}>
+          <div className={!hasDrink ? styles.welcome : undefined}>
             <Button
               type="primary"
               onClick={() => dispatch({ type: "fetchStart" })}
