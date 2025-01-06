@@ -1,17 +1,16 @@
 # Cocktail Collection
+ランダムなカクテルの画像・名前・説明を表示し、お気に入りに保存できるシングルページアプリケーションです。
 
-## 概要
+# URL
+https://cocktail-collection-0203.netlify.app/
 
-「TheCocktailDB」からランダムでドリンクメニューを取得するアプリ
+# 使用技術
+| Category | Technology Stack |
+---- | ----
+| Frontend | CSS Module, JavaScript, React |
+| Infrastructure | Netlify |
+| etc. | ESLint, Prettier, Git, GitHub |
 
-## 機能
-
-- ランダムにドリンクを取得し、画像とレシピを表示する機能
+# 機能一覧
+- カクテルデータの取得機能（[TheCocktailDB.com](https://www.thecocktaildb.com/)からAPIで取得）
 - ブックマーク機能（ローカルストレージに保存）
-
-## TODO
-
-- ホーム画面以外では「Watch Favorites」ボタンを隠す
-- ブックマークしたドリンクのメニューを表示する画面を作る（ホーム画面とは違うレイアウト）
-- Fav ボタンをコンポーネント化し、一覧画面や個別の画面から追加・削除をできるようにする
-- 材料等表示するデータを追加する
