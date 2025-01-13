@@ -10,9 +10,9 @@ https://cocktail-collection-0203.netlify.app/
 
 | Category | Technology Stack |
 ---- | ----
-| Frontend | CSS Module, JavaScript, React |
+| Frontend | JavaScript, React |
 | Infrastructure | Netlify |
-| etc. | ESLint, Prettier, Git, GitHub |
+| etc. | react-router-dom, ESLint, Prettier, Git, GitHub |
 
 ## 機能一覧
 
