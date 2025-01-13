@@ -1,28 +1,37 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Heading from "../components/Heading";
-import styles from "./Favorites.module.css";
+import { useDrink } from "../contexts/DrinkContext";
+import FavButton from "../components/FavButton";
+import Modal from "../components/Modal";
 
-export default function Favorites({ favorites, dispatch }) {
+export default function Favorites() {
+  const { favorites } = useDrink();
+
   return (
-    <section className={`${styles.container}`}>
+    <>
       <Heading>Favorites</Heading>
-      <div className={styles.gridContainer}>
-        {favorites.map((fav) => (
-          <Link
-            key={fav.id}
-            className={styles.gridItem}
-            to={`/drink/${fav.id}`}
-          >
-            <img
-              width={200}
-              className={styles.img}
-              src={fav.imgUrl}
-              alt={fav.name}
-            />
-            <h3 className={styles.drinkName}>{fav.name}</h3>
-          </Link>
-        ))}
-      </div>
-    </section>
+      {favorites.length > 0 ? (
+        <>
+          <div className="favorites__grid">
+            {favorites.map((fav) => (
+              <Link
+                key={fav.id}
+                className="favorites__item"
+                to={`/favorites/${fav.id}`}
+              >
+                <div className="favorites__img-box">
+                  <img width={200} src={fav.imgUrl} alt={fav.name} />
+                  <FavButton drink={fav} />
+                </div>
+                <h3 className="favorites__drink-name">{fav.name}</h3>
+              </Link>
+            ))}
+          </div>
+          <Modal />
+        </>
+      ) : (
+        <p>There are no favorites yet.</p>
+      )}
+    </>
   );
 }

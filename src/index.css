@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Poiret+One&display=swap");
 
 :root {
   font-size: min(120%, 4vw);
@@ -8,8 +9,8 @@
   --color-light-0: #f5f5f5;
   --color-light-1: #ffedd8;
   --color-light-2: #eabe6c;
-  --color-grey-0: #999;
-  --color-grey-1: #444;
+  --color-grey-0: #c8c1b2;
+  --color-grey-1: #484645;
 }
 
 * {
@@ -33,6 +34,12 @@ a:visited {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+a:hover,
+a:active {
+  opacity: 0.7;
 }
 
 img {
@@ -43,8 +50,14 @@ img {
 button {
   all: unset;
   cursor: pointer;
+  transition: 0.3s;
 }
 
+button:hover {
+  opacity: 0.7;
+}
+
+/* === Common === */
 .app {
   display: flex;
   flex-direction: column;
@@ -54,51 +67,282 @@ button {
   max-width: 1200px;
   min-height: 100vh;
 }
-/* section index */
 
-/* section collection */
-.collection {
-  padding: 4rem 2rem;
+.logo {
+  font-weight: normal;
+  font-family: "Italiana", sans-serif;
+  color: var(--color-light-1);
 }
 
-.grid-container {
-  margin: 5rem auto 0;
+.heading {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--color-light-2);
+  margin-bottom: 1rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.button--primary {
+  background: var(--color-primary);
+}
+
+.button--secondary {
+  border: 1px solid var(--color-light-0);
+}
+
+/* === Header === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+
+/* === Footer === */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  border-top: 0.5px solid var(--color-grey-0);
+}
+
+.footer__text {
+  color: var(--color-grey-0);
+  font-size: 0.75rem;
+}
+
+/* === Loader === */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.loader__emoji {
+  font-size: 4rem;
+  animation: 4s linear infinite rotation;
+}
+
+.loader__text {
+  font-size: 1.25rem;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* === Page === */
+.section-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* === Page: Home === */
+.home {
+  text-align: center;
+}
+
+.home__boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+  justify-content: center;
+  align-items: start;
+  max-width: 900px;
+}
+
+.home__box {
+  flex: 1;
+  width: calc(50% - 2rem);
+  min-width: min(100%, 240px);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.home__fav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home__drink-name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.home__fav {
+  font-size: 1.25rem;
+  color: var(--color-grey-1);
+}
+
+.home__fav--active {
+  color: var(--color-light-2);
+}
+
+.home__rule {
+  border: 1px solid var(--color-primary);
+}
+
+.home__welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* === Page: Favorites === */
+.favorites {
+  text-align: center;
+}
+
+.favorites__grid {
   display: grid;
   gap: 4rem;
   grid-template-columns: repeat(auto-fit, 200px);
-  align-items: top;
   justify-content: center;
+  align-items: start;
+  width: 100%;
 }
 
-.grid-item {
-  width: 200px;
-  text-align: center;
-  cursor: pointer;
+.favorites__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.grid-item:hover {
-  opacity: 0.5;
+.favorites__img-box {
+  position: relative;
 }
 
-.thumb {
-  width: 200px;
-  height: 200px;
+.favorites__img-box button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
-.collection h3 {
+.favorites__drink-name {
   font-weight: normal;
   font-size: 1rem;
-  margin-top: 0.5rem;
 }
 
-/* item */
-.back {
-  display: block;
-  margin: 6rem auto 0;
-  text-align: center;
-  cursor: pointer;
+/* === Modal === */
+.modal__overlay {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
 }
 
-.back:hover {
-  opacity: 0.5;
+.modal__contents {
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 500px;
+  padding: 0.5rem;
+  background-color: var(--color-light-0);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: start;
+  color: var(--color-dark);
+
+  animation: appear 1s;
 }
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal__box {
+  width: calc(50% - 0.5rem);
+  min-width: min(100%, 180px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal__box img {
+  width: auto;
+}
+
+.modal__drink-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.modal__instruction {
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.modal__button-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* .app {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin: 0 auto;
+  padding: 0 min(2rem, 5vw);
+  max-width: 1200px;
+  min-height: 100vh;
+} *
+
+.home__boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+  justify-content: center;
+  align-items: start;
+  max-width: 900px;
+}
+
+.home__box {
+  flex: 1;
+  width: calc(50% - 2rem);
+  min-width: min(100%, 240px);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}*/
